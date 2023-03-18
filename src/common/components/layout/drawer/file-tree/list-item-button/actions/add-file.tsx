@@ -1,3 +1,4 @@
+import { FileCopyTwoTone } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -6,6 +7,7 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
+  ListItemIcon,
   MenuItem,
   TextField,
   Typography,
@@ -43,7 +45,12 @@ export function AddFile(props: { path: number[] }) {
 
   return (
     <>
-      <MenuItem onClick={handleClick}>Add File</MenuItem>
+      <MenuItem onClick={handleClick}>
+        <ListItemIcon>
+          <FileCopyTwoTone color="primary" />
+        </ListItemIcon>
+        Add File
+      </MenuItem>
       <Dialog open={open} disablePortal onClose={toggle}>
         <DialogTitle>
           <Typography component="span" variant="h3">

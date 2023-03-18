@@ -1,4 +1,4 @@
-import { CreateNewFolderTwoTone } from '@mui/icons-material';
+import { EditTwoTone } from '@mui/icons-material';
 import {
   Box,
   Button,
@@ -16,42 +16,35 @@ import { useCallback, useState } from 'react';
 
 import { useDataContext } from '../../../../../../../context/data-context';
 
-export function AddFolder(props: { path: number[] }) {
+export function RenameItem(props: { name: string; path: number[] }) {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');
+  const [name, setName] = useState(props.name);
 
   const toggle = () => setOpen(o => !o);
 
-  const { addFolder } = useDataContext();
+  const { renameItem } = useDataContext();
 
   const handleClick = useCallback(() => {
     toggle();
   }, []);
 
   const handleAdd = useCallback(() => {
-    addFolder(
-      {
-        name,
-        kind: 'directory',
-        children: [],
-      },
-      props.path,
-    );
+    renameItem(props.path, name);
     toggle();
-  }, [addFolder, name, props.path]);
+  }, [renameItem, name, props.path]);
 
   return (
     <>
       <MenuItem onClick={handleClick}>
         <ListItemIcon>
-          <CreateNewFolderTwoTone color="primary" />
+          <EditTwoTone color="primary" />
         </ListItemIcon>
-        Add Folder
+        Rename
       </MenuItem>
       <Dialog open={open} disablePortal onClose={toggle}>
         <DialogTitle>
           <Typography component="span" variant="h3">
-            Add Folder
+            Rename
           </Typography>
         </DialogTitle>
         <Divider />
@@ -68,7 +61,7 @@ export function AddFolder(props: { path: number[] }) {
         <DialogActions>
           <Button onClick={toggle}>Cancel</Button>
           <Button variant="contained" onClick={handleAdd}>
-            Add
+            Rename
           </Button>
         </DialogActions>
       </Dialog>

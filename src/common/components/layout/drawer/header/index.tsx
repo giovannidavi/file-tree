@@ -6,16 +6,11 @@ import { useFileContext } from '../../../../../context/file-tree';
 import { DrawerHeader } from './styles';
 
 export function Header() {
-  const {
-    triggerExpandAll,
-    triggerCollapseAll,
-    selectedListItem,
-    setSelectedListItem,
-  } = useFileContext();
+  const { triggerExpandAll, triggerCollapseAll } = useFileContext();
 
   return (
     <DrawerHeader>
-      GD
+      Gio Davì
       <Box display="flex" gap={2}>
         <Button
           color="secondary"

@@ -1,4 +1,4 @@
-# File Tree React Application
+export default `# File Tree React Application
 
 The File Tree React Application features an intuitive and interactive file tree that includes both folders and files. Users can easily navigate through the tree structure, with each folder being capable of containing additional folders or files. The application allows users to perform various actions such as renaming or removing files and folders with ease. Users can also add new files or folders within a folder, and access all available actions on a folder or file through the context menu when right-clicking on the element.
 
@@ -24,12 +24,13 @@ The application's drag and drop functionality enables users to move files and fo
 ## How to Use
 
 1. Clone the repository.
-2. Install the dependencies with `yarn install`.
-3. Start the development server with `yarn start`.
-4. Start the mocked server with `yarn server`.
-5. Navigate to `http://localhost:3000` to see the application.
+2. Install the dependencies with \`yarn install\`.
+3. Start the development server with \`yarn start\`.
+4. Start the mocked server with \`yarn server\`.
+5. Navigate to \`http://localhost:3000\` to see the application.
 
 ## Improvements
 
 - Investigate the flakiness of the drag and drop functionality.
-- Implement a sync functionality by adding a sync icon next to the `expand all` / `collapse all` buttons. This could trigger a mutation to the mock server.
+- Implement a sync functionality by adding a sync icon next to the \`expand all\` / \`collapse all\` buttons. This could trigger a mutation to the mock server.
+`;

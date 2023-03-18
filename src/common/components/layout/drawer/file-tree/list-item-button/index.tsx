@@ -12,9 +12,13 @@ import { useFileContext } from '../../../../../../context/file-tree';
 import type { FileListItem } from '../../../../../../types/files';
 import { ContextMenu } from '../../../../context-menu';
 import { useContextMenu } from '../../../../context-menu/hooks/use-context-menu';
+import { Drag } from '../../../../dnd/drag';
+import { DnDTypes } from '../../../../dnd/types';
 
 import { AddFile } from './actions/add-file';
 import { AddFolder } from './actions/add-folder';
+import { RemoveItem } from './actions/remove-item';
+import { RenameItem } from './actions/rename-item';
 import {
   ListItemButton as ListItemButtonBase,
   ListItemWrapper,
@@ -24,6 +28,22 @@ export function ListItemButton(props: {
   item: FileListItem;
   children?: ReactNode;
 }) {
+  if (props.item.path.length === 1) {
+    return <Content {...props} />;
+  }
+
+  return (
+    <Drag
+      id={`h-${props.item.path.join('.')}`}
+      index={props.item.path[props.item.path.length - 1]}
+      type={DnDTypes.FILE}
+    >
+      <Content {...props} />
+    </Drag>
+  );
+}
+
+function Content(props: { item: FileListItem; children?: ReactNode }) {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(o => !o), []);
   const Icon = open ? ExpandLessTwoTone : ExpandMoreTwoTone;
@@ -90,9 +110,14 @@ function getActions(item: FileListItem): ReactElement[] {
       return [
         <AddFile key="add" path={item.path} />,
         <AddFolder key="add-folder" path={item.path} />,
+        <RemoveItem key="remove" path={item.path} />,
+        <RenameItem key="rename" name={item.name} path={item.path} />,
       ];
     case 'file':
-      return [];
+      return [
+        <RemoveItem key="remove" path={item.path} />,
+        <RenameItem key="rename" name={item.name} path={item.path} />,
+      ];
     default:
       return [];
   }

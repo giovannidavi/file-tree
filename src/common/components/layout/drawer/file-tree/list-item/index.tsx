@@ -9,7 +9,10 @@ export function Item(props: { listItem: FileListItem }): ReactElement {
     case 'directory':
       return (
         <ListItemButton item={props.listItem}>
-          <FileList items={props.listItem.children} />
+          <FileList
+            items={props.listItem.children}
+            path={props.listItem.path}
+          />
         </ListItemButton>
       );
     case 'file':
