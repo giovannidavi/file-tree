@@ -2,11 +2,8 @@ import { alpha, Box, useTheme } from '@mui/material';
 import type { ReactNode } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
-import type { DnDTypes } from '../types';
-
 export type DropProps = {
   id?: string;
-  type: DnDTypes;
   children: ReactNode;
 };
 
@@ -16,7 +13,7 @@ export function Drop(props: DropProps) {
   if (!props.id) return <Box>{props.children}</Box>;
 
   return (
-    <Droppable droppableId={props.id} type={props.type}>
+    <Droppable droppableId={props.id}>
       {(provided, snapshot) => (
         <Box
           ref={provided.innerRef}

@@ -2,12 +2,9 @@ import { Box } from '@mui/material';
 import type { ReactNode } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
-import type { DnDTypes } from '../types';
-
 export type DragProps = {
   id: string;
   index: number;
-  type: DnDTypes;
   children: ReactNode;
 };
 

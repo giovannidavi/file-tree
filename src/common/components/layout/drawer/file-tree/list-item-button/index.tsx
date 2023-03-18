@@ -13,7 +13,6 @@ import type { FileListItem } from '../../../../../../types/files';
 import { ContextMenu } from '../../../../context-menu';
 import { useContextMenu } from '../../../../context-menu/hooks/use-context-menu';
 import { Drag } from '../../../../dnd/drag';
-import { DnDTypes } from '../../../../dnd/types';
 
 import { AddFile } from './actions/add-file';
 import { AddFolder } from './actions/add-folder';
@@ -36,7 +35,6 @@ export function ListItemButton(props: {
     <Drag
       id={`h-${props.item.path.join('.')}`}
       index={props.item.path[props.item.path.length - 1]}
-      type={DnDTypes.FILE}
     >
       <Content {...props} />
     </Drag>
@@ -92,7 +90,7 @@ function Content(props: { item: FileListItem; children?: ReactNode }) {
         </Tooltip>
         {!!props.children && <Icon />}
       </ListItemButtonBase>
-      <Collapse in={open} sx={{ width: '100%' }}>
+      <Collapse in={open} sx={{ width: '100%' }} mountOnEnter unmountOnExit>
         {props.children}
       </Collapse>
       <ContextMenu
