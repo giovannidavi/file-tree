@@ -31,5 +31,5 @@ The application's drag and drop functionality enables users to move files and fo
 
 ## Improvements
 
-- Investigate the flakiness of the drag and drop functionality.
-- Implement a sync functionality by adding a sync icon next to the `expand all` / `collapse all` buttons. This could trigger a mutation to the mock server.
+- ~~Investigate the flakiness of the drag and drop functionality.~~
+- ~~Implement a sync functionality by adding a sync icon next to the `expand all` / `collapse all` buttons. This could trigger a mutation to the mock server.~~

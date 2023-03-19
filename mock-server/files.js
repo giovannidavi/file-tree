@@ -1,5 +1,6 @@
 const getFiles = () => [
   {
+    id: 0,
     name: 'project',
     kind: 'directory',
     children: [
