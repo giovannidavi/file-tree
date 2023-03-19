@@ -4,6 +4,8 @@ The File Tree React Application features an intuitive and interactive file tree 
 
 The application's drag and drop functionality enables users to move files and folders around the tree structure, providing an effortless way to organize files and folders to suit their needs. The file tree is displayed within a sidebar, with each folder capable of being collapsed or expanded by clicking on the icon located on the right. Additionally, the application includes two buttons on the very top of the file tree that allow users to expand or collapse all folders with a single click.
 
+The application now includes a sync functionality to persist data across page refreshes. This is achieved by making a PUT request to the mock JSON server and saving the new data. The synced data is persisted for the entire server session.
+
 ## Features
 
 - Interactive file tree with folders and files
@@ -11,6 +13,7 @@ The application's drag and drop functionality enables users to move files and fo
 - Context menu for accessing actions on a folder or file
 - Drag and drop functionality for moving files and folders
 - Collapsible and expandable folders with buttons to expand and collapse all folders
+- Sync functionality to persist data across page refreshes
 
 ## Technologies Used
 
